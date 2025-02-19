@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Social Robot Navigation.">
+  <meta name="keywords" content="Robots, Navigation, Social Navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Robot Navigation: A Review of Learning-Based Methods</title>
+
+ 
+ 
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg"> <!-- TODO: Add website icon (old: favicon.svg)-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+-->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Social Robot Navigation: A Review of Learning-Based Methods</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ZwpZ8hcAAAAJ&hl=en" target="_blank">Rashid Alyassi</a>, <!-- comma OR space: &nbsp;&nbsp;&nbsp;&nbsp; -->
+			  </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=aOns5HQAAAAJ&hl=en&oi=ao" target="_blank">Cesar Cadena</a>,
+			</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=XN49czEAAAAJ" target="_blank">Robert Riener</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=qsFoiesAAAAJ" target="_blank">Diego Paez-Granados</a> <!--   <sup>1</sup>  -->
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">ETH Zurich</span>
+          </div>
+
+
+
+<!-- ETH Logo -->
+            <div class="logo-container">
+              <div class="column">
+                <a href="https://www.ethz.ch" target="_blank">
+                  <img class="logo_eth" src="./static/images/logo_eth.png" alt="logo_eth">
+                </a>
+              </div>
+
+
+
+		<!-- ICONS. -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Archive Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+			  <span class="link-block">
+                <a href="https://www.youtube.com/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+			  -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rashid1844/SocialNav" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- AwesomeList Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rashid1844/awesome-social-navigation" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+				<div class="icon">
+					<img src="https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg" alt="Awesome Logo" style="width: 50px; height: 50px;">
+				</div>
+                  <span>Awesome-List</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rashid1844/SocialNav" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+	  
+        <div class="item item-Scenario4">
+          <video poster="" id="Scenario4" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario5">
+          <video poster="" id="Scenario5" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario6">
+          <video poster="" id="Scenario6" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario1">
+          <video poster="" id="Scenario1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Scenario1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario2">
+          <video poster="" id="Scenario2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Scenario2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario3">
+          <video poster="" id="Scenario3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Scenario3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+		
+		
+		<!--
+        <div class="item item-Scenario4_2">
+          <video poster="" id="Scenario4_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario4_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario5_2">
+          <video poster="" id="Scenario5_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario5_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario6_2">
+          <video poster="" id="Scenario6_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario6_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario1_2">
+          <video poster="" id="Scenario1_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario1_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario2_2">
+          <video poster="" id="Scenario2_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario2_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario3_2">
+          <video poster="" id="Scenario3_2" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario3_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+		-->
+		
+		
+		<!--
+        <div class="item item-Scenario4_3">
+          <video poster="" id="Scenario4_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario4_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario5_3">
+          <video poster="" id="Scenario5_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario5_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario6_3">
+          <video poster="" id="Scenario6_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario6_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario1_3">
+          <video poster="" id="Scenario1_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario1_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario2_3">
+          <video poster="" id="Scenario2_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario2_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Scenario3_3">
+          <video poster="" id="Scenario3_3" controls muted loop playsinline height="100%" preload="none">
+            <source src="./static/videos/Scenario3_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+		-->
+		
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ################## SCRIPT #####################  -->
+<!-- ################## SCRIPT #####################  -->
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+		The integration of robots into human environments requires developing social navigation capabilities
+		that enable safe and fluid interactions in shared spaces. This paper surveys recent advancements in
+		learning-based methods for social navigation, which leverage deep learning to address the
+		complexities of human-robot coexistence.
+		</p>
+		<p>
+		We explore a spectrum of architectures and essential components that enable these systems,
+		from creating realistic training environments to designing objectives oriented toward socially aware behavior.
+		Benchmarking existing frameworks reveals both their potential and limitations, offering insights into the
+		architectural choices that drive performance in real-world scenarios. By mapping current trends and identifying ongoing challenges,
+		this survey provides a roadmap for future research aimed at refining social navigation systems for broader deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Algorithms diagram -->
+    <div class="columns is-centered has-text-centered">
+	  <div class="column is-four-fifths">
+		<h2 class="title is-3">Social Navigation Algorithms</h2>
+        <div class="content has-text-justified">
+          <p>
+            Social navigation algorithms are categorized based on their computational complexity,
+			learning approach, and the specific modules they require, such as human
+			detection, tracking, and prediction. We group these approaches into six main categories.
+			This classification highlights the diversity of algorithmic strategies for social navigation,
+			from simpler end-to-end models to sophisticated multi-policy and prediction-based methods
+          </p>
+	  </div>
+	  <img src="./static/images/socialnav_algos.png" alt="Social Navigation Algorithms."/>
+			<!--
+			<object data="./static/images/socialnav_algos.png" type="image/png"
+					aria-label="Social Navigation Algorithms" class="image-object">
+			  Your browser does not support this image format.
+			</object> -->
+	  </div>
+	</div>
+    <!--/ Algorithms diagram -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+	 
+	 <pre><code>To be added later.</code></pre>
+	<!--
+    <pre><code>@article{lastname2025social???,
+  author    = {Author1, Author2,},
+  title     = {Social Robot Navigation: A Review of Learning-Based Methods},
+  journal   = {Journal},
+  year      = {2025},
+}</code></pre>
+	-->
+  </div>
+</section>
+
+
+
+<!-- Kit.net Newsletter FORM -->
+<!--
+<section class="section" id="Newsletter">
+  <div class="container is-max-desktop content has-text-centered is-centered has-background-light">
+	<h1 class="title">Newsletter</h1>
+	<h4>Get the latest Social Navigation Advancements. </h4>
+	<div style="display: inline-block;">
+	<script async data-uid="37fd3673a0" src="https://socialnav.kit.com/37fd3673a0/index.js"></script>
+  </div>
+  </div>
+</section>
+-->
+<!-- Kit.net Newsletter FORM -->
+
+
+
+
+
+
+
+<!-- 
+<section class="section" id="Newsletter">
+  <div class="container is-max-desktop content has-text-centered is-centered has-background-light">
+	<h1 class="title">Newsletter</h1>
+	<h4>Get the latest Social Navigation Advancements. </h4>
+	<div style="display: inline-block;">
+  <a href="https://sympa.ethz.ch/sympa/subscribe/socialnav-newsletter" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="subscribe-button">
+    Subscribe
+  </a>
+  </div>
+  </div>
+</section>
+-->
+
+<!-- ETH Newsletter FORM -->
+<section class="newsletter-section" id="Newsletter">
+  <div class="newsletter-card">
+    <h1 class="newsletter-title">Newsletter</h1>
+    <h4 class="newsletter-subtitle">Get the latest Social Navigation Advancements.</h4>
+    <a href="https://sympa.ethz.ch/sympa/subscribe/socialnav-newsletter" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="subscribe-button">
+      Subscribe
+    </a>
+  </div>
+</section>
+<!-- ETH Newsletter FORM -->
+
+
+
+
+
+<!--
+<section class="section" id="Newsletter">
+  <div class="container is-max-desktop is-centered has-text-centered" style="text-align: center;">
+    <div style="display: inline-block;">
+      <script async data-uid="37fd3673a0" src="https://socialnav.kit.com/37fd3673a0/index.js"></script>
+    </div>
+  </div>
+</section>
+-->
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          
+		 <p>
+		© 2025 Licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. 
+		Template on <a href="https://github.com/nerfies/nerfies.github.io">GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
