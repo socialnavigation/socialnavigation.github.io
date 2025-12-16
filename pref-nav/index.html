@@ -13,20 +13,20 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
-  <link rel="stylesheet" href="../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../static/css/index.css">
-  <link rel="icon" href="../static/images/favicon.svg"> <!-- TODO: Add website icon (old: favicon.svg)-->
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="static/images/favicon.svg"> <!-- TODO: Add website icon (old: favicon.svg)-->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="../static/js/fontawesome.all.min.js"></script>
-  <script src="../static/js/bulma-carousel.min.js"></script>
-  <script src="../static/js/bulma-slider.min.js"></script>
-  <script src="../static/js/index.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
 <body>
 
@@ -82,7 +82,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Social Robot Navigation: A Review and Benchmarking of Learning-Based Methods</h1>
+          <h1 class="title is-1 publication-title">Pref-Nav: Preference-Aware Dual-Former MORL Policy for Social Navigation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=ZwpZ8hcAAAAJ&hl=en" target="_blank">Rashid Alyassi</a>&nbsp;&nbsp;&nbsp; <!-- comma OR space: &nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -108,7 +108,7 @@
             <div class="logo-container">
               <div class="column">
                 <a href="https://www.ethz.ch" target="_blank">
-                  <img class="logo_eth" src="../static/images/logo_eth.png" alt="logo_eth">
+                  <img class="logo_eth" src="static/images/logo_eth.png" alt="logo_eth">
                 </a>
               </div>
 
@@ -151,7 +151,7 @@
 			  -->
               <!-- MORL Link. -->
               <span class="link-block">
-                <a href="https://github.com/ralyassi/SocialNav" target="_blank"
+                <a href="https://github.com/ralyassi/morl_games" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -161,7 +161,7 @@
               </span>
               <!-- UPE Link. -->
               <span class="link-block">
-                <a href="https://github.com/ralyassi/SocialNav" target="_blank"
+                <a href="https://github.com/ralyassi/GoT-UPE" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -201,127 +201,33 @@
 
 
 
+
+
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
 	  
-        <div class="item item-Scenario4">
-          <video poster="" id="Scenario4" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario4.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig1">
+          <img src="static/figs/fig_success_rate_robot_vel_mean.png" alt="Social Navigation success_rate vs robot_vel_mean."/>
         </div>
-        <div class="item item-Scenario5">
-          <video poster="" id="Scenario5" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario5.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig2">
+          <img src="static/figs/fig_success_rate_collision_rate.png" alt="Social Navigation success_rate vs collision_rate."/>
         </div>
-        <div class="item item-Scenario6">
-          <video poster="" id="Scenario6" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario6.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig3">
+          <img src="static/figs/fig_success_rate_path_ratio.png" alt="Social Navigation success_rate vs path_ratio."/>
         </div>
-        <div class="item item-Scenario1">
-          <video poster="" id="Scenario1" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario1.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig4">
+          <img src="static/figs/fig_success_rate_runningtime.png" alt="Social Navigation success_rate vs runningtime."/>
         </div>
-        <div class="item item-Scenario2">
-          <video poster="" id="Scenario2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario2.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig5">
+          <img src="static/figs/fig_obs_min_dist_human_min_dist.png" alt="Social Navigation obs_min_dist vs human_min_dist."/>
         </div>
-        <div class="item item-Scenario3">
-          <video poster="" id="Scenario3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario3.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-fig6">
+          <img src="static/figs/fig_robot_accel_mean_robot_jerk_mean.png" alt="Social Navigation robot_accel_mean vs robot_jerk_mean."/>
         </div>
 		
 		
-		<!--
-        <div class="item item-Scenario4_2">
-          <video poster="" id="Scenario4_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario4_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario5_2">
-          <video poster="" id="Scenario5_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario5_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario6_2">
-          <video poster="" id="Scenario6_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario6_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario1_2">
-          <video poster="" id="Scenario1_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario1_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario2_2">
-          <video poster="" id="Scenario2_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario2_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario3_2">
-          <video poster="" id="Scenario3_2" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario3_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-		-->
-		
-		
-		<!--
-        <div class="item item-Scenario4_3">
-          <video poster="" id="Scenario4_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario4_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario5_3">
-          <video poster="" id="Scenario5_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario5_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario6_3">
-          <video poster="" id="Scenario6_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario6_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario1_3">
-          <video poster="" id="Scenario1_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario1_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario2_3">
-          <video poster="" id="Scenario2_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario2_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-Scenario3_3">
-          <video poster="" id="Scenario3_3" controls muted loop playsinline height="100%" preload="none">
-            <source src="../static/videos/resized/Scenario3_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-		-->
 		
       </div>
     </div>
@@ -329,11 +235,15 @@
 </section>
 
 
-<!-- ################## SCRIPT #####################  -->
-<!-- ################## SCRIPT #####################  -->
-
-
-
+<!-- Main Video. -->
+<section class="section">
+  <div class="container is-max-fullhd content">
+    <video poster="" id="Scenario_1-5" autoplay controls muted loop playsinline style="width:100%; height:auto;">
+      <source src="static/videos/Scenario_1-5_id_3_7_6_12_5.mp4"
+              type="video/mp4">
+    </video>
+  </div>
+</section>
 
 
 <section class="section">
@@ -344,16 +254,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-		The integration of robots into human environments demands advanced social navigation capabilities
-		for safe and fluid interactions in shared spaces. This review examines recent progress in learning-based
-		social navigation methods, harnessing deep learning to navigate the complexities of human-robot coexistence.
+            Social navigation enables mobile robots to operate in human-populated environments.
+             However, existing social navigation policies often misalign with user expectations and lack mechanisms to incorporate post-deployment feedback for long-term human–robot interaction. 
 		</p>
 		<p>
-		We categorize and analyze a diverse array of architectures and core components, from the development of realistic training
-		 environments to the design of objectives that promote socially aware behavior. Through a comprehensive benchmark of existing
-		 frameworks, we highlight both their advantages and shortcomings, offering critical insights into the architectural decisions
-		 that shape performance in social scenarios. By mapping current trends and outlining ongoing challenges, this review lays out 
-		 a strategic roadmap for future research aimed at enhancing social navigation systems for broader deployment. 
+      To address this, we propose Pref-Nav, a preference-aware multi-objective social navigation framework that adapts robot behavior in real time based on user feedback.
+       Pref-Nav integrates a context-aware Graph-of-Thought LLM User Preference Encoder, which translates text-based preferences into objective weightings.
+        These objective weightings condition a Dual-Former policy network trained with multi-objective reinforcement learning, enabling robots to align navigation behavior with diverse user needs and contexts.
+         Experimental results demonstrate that Pref-Nav achieves strong consistency between expressed user preferences and the navigation behavior across varied scenarios.
+
 		</p>
         </div>
       </div>
@@ -363,25 +272,41 @@
     <!-- Algorithms diagram -->
     <div class="columns is-centered has-text-centered">
 	  <div class="column is-four-fifths">
-		<h2 class="title is-3">Social Navigation Algorithms</h2>
+		<h2 class="title is-3">Pref-Nav Architecture</h2>
         <div class="content has-text-justified">
           <p>
-            Social navigation algorithms are categorized based on their computational complexity
-			and the specific modules they require, such as human
-			detection, tracking, and prediction. This classification organizes social navigation
-			strategies into five main categories, ranging from simpler end-to-end models
-			to sophisticated multi-policy and prediction-based methods
+            We propose Pref-Nav, a Preference-Aware Dual-Former multi-objective policy for social navigation.
+            In Pref-Nav, the robot's behavior is guided by a preference-conditioned, multi-objective learning policy. 
           </p>
-	  </div>
-	  <img src="../static/images/socialnav_algos.png" alt="Social Navigation Algorithms."/>
-			<!--
-			<object data="../static/images/socialnav_algos.png" type="image/png"
-					aria-label="Social Navigation Algorithms" class="image-object">
-			  Your browser does not support this image format.
-			</object> -->
-	  </div>
-	</div>
+          <p>
+            The policy is trained using multi-objective reinforcement learning (MORL) to balance multiple, often competing objectives, including safety, efficiency, and comfort. 
+            At deployment, its behavior is dynamically adapted through a User Preference Encoder (UPE), which interprets text-based human feedback and translates it into a preference vector. 
+            This preference vector functions as a weighted sum of the objectives and adapts the policy in real time, allowing the robot to continuously align its navigation strategy with user intentions and context without retraining.
+          </p>
+
+
+    </div>
+  </div>
+</div>
     <!--/ Algorithms diagram -->
+   <!-- <img src="static/images/Pref-Nav.png" alt="Social Navigation Algorithms."/>   -->
+
+
+
+
+
+    <img
+    src="static/images/Pref-Nav.png"
+    alt="Social Navigation Algorithms"
+    class="zoomable"
+    onclick="document.getElementById('img-modal').showModal()"
+  />
+  
+  <dialog id="img-modal" onclick="this.close()">
+    <img src="static/images/Pref-Nav.png" alt="">
+  </dialog>
+
+
   </div>
 </section>
 
@@ -410,42 +335,12 @@
 
 
 
-<!-- Kit.net Newsletter FORM -->
-<!--
-<section class="section" id="Newsletter">
-  <div class="container is-max-desktop content has-text-centered is-centered has-background-light">
-	<h1 class="title">Newsletter</h1>
-	<h4>Get the latest Social Navigation Advancements. </h4>
-	<div style="display: inline-block;">
-	<script async data-uid="37fd3673a0" src="https://socialnav.kit.com/37fd3673a0/index.js"></script>
-  </div>
-  </div>
-</section>
--->
-<!-- Kit.net Newsletter FORM -->
 
 
 
 
 
 
-
-<!-- 
-<section class="section" id="Newsletter">
-  <div class="container is-max-desktop content has-text-centered is-centered has-background-light">
-	<h1 class="title">Newsletter</h1>
-	<h4>Get the latest Social Navigation Advancements. </h4>
-	<div style="display: inline-block;">
-  <a href="https://sympa.ethz.ch/sympa/subscribe/socialnav-newsletter" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     class="subscribe-button">
-    Subscribe
-  </a>
-  </div>
-  </div>
-</section>
--->
 
 <!-- ETH Newsletter FORM -->
 <section class="newsletter-section" id="Newsletter">
@@ -463,18 +358,6 @@
 <!-- ETH Newsletter FORM -->
 
 
-
-
-
-<!--
-<section class="section" id="Newsletter">
-  <div class="container is-max-desktop is-centered has-text-centered" style="text-align: center;">
-    <div style="display: inline-block;">
-      <script async data-uid="37fd3673a0" src="https://socialnav.kit.com/37fd3673a0/index.js"></script>
-    </div>
-  </div>
-</section>
--->
 
 
 
