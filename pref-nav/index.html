@@ -235,6 +235,60 @@
 </section>
 
 
+
+<!-- Abstract and Paragraph -->
+<section class="section">
+  <div class="container is-max-fullhd">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Social navigation enables mobile robots to operate in human-populated environments.
+             However, existing social navigation policies often misalign with user expectations and lack mechanisms to incorporate post-deployment feedback for long-term human-robot interaction. 
+             To address this, we propose Pref-Nav, a preference-aware multi-objective social navigation framework that adapts robot behavior in real time based on user feedback.
+            </p>
+		<p>
+       Pref-Nav integrates a context-aware Graph-of-Thought LLM User Preference Encoder, which translates text-based preferences into objective weightings.
+        These objective weightings condition a Dual-Former policy network trained with multi-objective reinforcement learning, enabling robots to align navigation behavior with diverse user needs and contexts.
+         Experimental results demonstrate that Pref-Nav achieves strong consistency between expressed user preferences and the navigation behavior across varied scenarios.
+
+		</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Algorithms diagram -->
+    <div class="columns is-centered has-text-centered">
+	  <div class="column is-four-fifths">
+		<h2 class="title is-3">Pref-Nav Architecture</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose Pref-Nav, a preference-aware Dual-Former multi-objective policy for social navigation.
+            In Pref-Nav, the robot's behavior is guided by a preference-conditioned, multi-objective learning policy. 
+            The policy is trained using multi-objective reinforcement learning (MORL) to balance multiple, often competing objectives, including safety, efficiency, and comfort. 
+          </p>
+          <p>
+            At deployment, its behavior is dynamically adapted through a User Preference Encoder (UPE), which interprets text-based human feedback and translates it into a preference vector. 
+            This preference vector functions as a weighted sum of the objectives and adapts the policy in real time, allowing the robot to continuously align its navigation strategy with user intentions and context without retraining.
+          </p>
+
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
 <!-- Sim Video. -->
 <section class="section">
   <div class="container is-max-fullhd content">
@@ -259,55 +313,11 @@
 
 
 
+
+
+<!--/ Algorithms diagram -->
 <section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Social navigation enables mobile robots to operate in human-populated environments.
-             However, existing social navigation policies often misalign with user expectations and lack mechanisms to incorporate post-deployment feedback for long-term human-robot interaction. 
-		</p>
-		<p>
-      To address this, we propose Pref-Nav, a preference-aware multi-objective social navigation framework that adapts robot behavior in real time based on user feedback.
-       Pref-Nav integrates a context-aware Graph-of-Thought LLM User Preference Encoder, which translates text-based preferences into objective weightings.
-        These objective weightings condition a Dual-Former policy network trained with multi-objective reinforcement learning, enabling robots to align navigation behavior with diverse user needs and contexts.
-         Experimental results demonstrate that Pref-Nav achieves strong consistency between expressed user preferences and the navigation behavior across varied scenarios.
-
-		</p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Algorithms diagram -->
-    <div class="columns is-centered has-text-centered">
-	  <div class="column is-four-fifths">
-		<h2 class="title is-3">Pref-Nav Architecture</h2>
-        <div class="content has-text-justified">
-          <p>
-            We propose Pref-Nav, a preference-aware Dual-Former multi-objective policy for social navigation.
-            In Pref-Nav, the robot's behavior is guided by a preference-conditioned, multi-objective learning policy. 
-          </p>
-          <p>
-            The policy is trained using multi-objective reinforcement learning (MORL) to balance multiple, often competing objectives, including safety, efficiency, and comfort. 
-            At deployment, its behavior is dynamically adapted through a User Preference Encoder (UPE), which interprets text-based human feedback and translates it into a preference vector. 
-            This preference vector functions as a weighted sum of the objectives and adapts the policy in real time, allowing the robot to continuously align its navigation strategy with user intentions and context without retraining.
-          </p>
-
-
-    </div>
-  </div>
-</div>
-    <!--/ Algorithms diagram -->
-   <!-- <img src="static/images/Pref-Nav.png" alt="Social Navigation Algorithms."/>   -->
-
-
-
-
-
+  <div class="container is-max-fullhd content">
     <img
     src="static/images/Pref-Nav.png"
     alt="Social Navigation Algorithms"
@@ -319,11 +329,8 @@
     <img src="static/images/Pref-Nav.png" alt="">
   </dialog>
 
-
   </div>
 </section>
-
-
 
 
 
