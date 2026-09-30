@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Social Robot Navigation.">
+  <meta name="keywords" content="Robots, Navigation, Social Navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prox-Nav: Constrained Reinforcement Learning for Safe Social Navigation with Proxemic Constraints</title>
+
+ 
+ 
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="static/images/favicon.svg"> <!-- TODO: Add website icon (old: favicon.svg)-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+		<!--
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+	  -->
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://socialnavigation.github.io/">
+            Review Paper
+          </a>
+          <a class="navbar-item" href="https://socialnavigation.github.io/prox-nav">
+            Prox-Nav
+          </a>
+		  <!--  
+          <a class="navbar-item" href="https://socialnavigation.github.io/">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://socialnavigation.github.io/">
+            PhotoShape
+          </a>
+			-->
+		
+		</div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Prox-Nav: Constrained Reinforcement Learning for Safe Social Navigation with Proxemic Constraints</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ZwpZ8hcAAAAJ&hl=en" target="_blank">Rashid Alyassi*</a>&nbsp;&nbsp;&nbsp; <!-- comma OR space: &nbsp;&nbsp;&nbsp;&nbsp; -->
+			  </span>
+        <span class="author-block">
+          <a href="https://www.linkedin.com/in/david-st/" target="_blank">David Streuli*</a>&nbsp;&nbsp;&nbsp; <!-- comma OR space: &nbsp;&nbsp;&nbsp;&nbsp; -->
+    </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=aOns5HQAAAAJ&hl=en&oi=ao" target="_blank">Cesar Cadena</a>&nbsp;&nbsp;&nbsp;
+			</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=XN49czEAAAAJ" target="_blank">Robert Riener</a>&nbsp;&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=qsFoiesAAAAJ" target="_blank">Diego Paez-Granados</a> <!--   <sup>1</sup>  -->
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">ETH Zurich</span>
+          </div>
+
+
+
+<!-- ETH Logo -->
+            <div class="logo-container">
+              <div class="column">
+                <a href="https://www.ethz.ch" target="_blank">
+                  <img class="logo_eth" src="static/images/logo_eth.png" alt="logo_eth">
+                </a>
+              </div>
+
+
+
+		<!-- ICONS. -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Archive Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+			  <span class="link-block">
+                <a href="https://www.youtube.com/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+			  -->
+              <!-- MORL Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ralyassi/crl_games" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>CRL</span>
+                  </a>
+              </span>
+              <!-- Sim Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ralyassi/SocialNav" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Sim</span>
+                  </a>
+              </span>
+              <!-- AwesomeList Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ralyassi/awesome-social-navigation" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+				<div class="icon">
+					<img src="https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg" alt="Awesome Logo" style="width: 50px; height: 50px;">
+				</div>
+                  <span>Awesome-List</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <!-- Unconstrained RL -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Unconstrained RL</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/u_Scenario6_eval_success_4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Human Collision -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Human Collision</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/hc_Scenario6_eval_success_6.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Safety Buffer -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Safety Buffer</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/sb_Scenario3_eval_success_1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Velocity Ellipse -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Velocity Ellipse</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/eb_Scenario6_eval_success_5.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Velocity Capsule -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Velocity Capsule</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/cb_Scenario6_eval_success_3.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Danger Zone -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Danger Zone</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/danger_zone_Scenario3_eval_success_1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav Velocity Obstacle -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – Velocity Obstacle</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/vo_Scenario3_eval_success_1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Prox-Nav ORCA -->
+        <div class="item">
+          <p class="video-caption">
+            <strong>Prox-Nav – ORCA</strong><br>
+          </p>
+          <video autoplay muted loop controls playsinline>
+            <source src="static/videos/or_Scenario6_eval_success_1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Abstract and Paragraph -->
+<section class="section">
+  <div class="container is-max-fullhd">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Mobile robots operating in human-populated environments, such as service robots navigating crowded indoor spaces, must balance task efficiency with explicit safety guarantees. 
+            While prior approaches often rely on human trajectory prediction to anticipate collisions, prediction uncertainty can lead either to unsafe behavior or overly conservative motion. 
+            In this work, we present Prox-Nav, a constrained reinforcement learning (CRL) framework for safe social navigation with proxemic-inspired safety constraints. 
+            Instead of relying on trajectory prediction, we design dense geometric and velocity-based constraints that directly enforce interpersonal safety.
+            </p>
+        		<p>
+              To enable stable CRL training across diverse crowd scenarios, we introduce an episode-based automated curriculum learning (ACL)
+               strategy that progressively increases task difficulty according to the number of completed episodes, producing a natural self-paced training process. 
+               Training is conducted in a crowd-aware simulation environment with scenario-specific pedestrian behaviors, enabling scalable CRL training and systematic evaluation. 
+               Prox-Nav achieves strong safety-efficiency trade-offs, reducing the collision rate to as low as 1.33\% while maintaining high task performance. Real-world experiments further demonstrate safe and socially compliant behavior.
+		      </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Algorithms diagram -->
+    <div class="columns is-centered has-text-centered">
+	  <div class="column is-four-fifths">
+		<h2 class="title is-3">Prox-Nav</h2>
+        <div class="content has-text-justified">
+          <p>
+            Prox-Nav is built around a modular safety design that separates task performance from safety enforcement.
+            The framework introduces multiple proximity-aware constraint formulations, including safety-buffer, velocity-aware, and geometry-based variants, allowing systematic comparison of constraint behaviors.
+          </p>
+          <p>
+            To improve training robustness, we integrate normalization techniques, and automated curriculum learning that gradually increases crowd complexity. 
+            The system is trained in a Habitat-based crowd simulator with ORCA-driven pedestrians and supports scalable evaluation across diverse multi-human scenarios, bridging simulation and real-world deployment. 
+          </p>
+
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+
+<!--/ Algorithms diagram -->
+<section class="section">
+  <div class="container is-max-fullhd content has-text-centered">
+    <img
+    src="static/images/CRL_Network.png"
+    alt="Social Navigation Algorithms"
+    style="width:60%; height:auto;"
+    class="zoomable"
+    onclick="document.getElementById('img-modal').showModal()"
+  />
+  
+  <dialog id="img-modal" onclick="this.close()">
+    <img src="static/images/CRL_Network.png" alt="">
+  </dialog>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- Sim Video. -->
+<section class="section">
+  <div class="container is-max-fullhd content has-text-centered">
+    <video poster="" id="Scenario_1-5" autoplay controls muted loop playsinline style="width:60%; height:auto;">
+      <source src="static/videos/RL_vs_CRL_Scenario_1-5_id_10_7_2_1_1.mp4"
+              type="video/mp4">
+    </video>
+  </div>
+</section>
+
+
+
+<!-- Demo Video. -->
+<section class="section">
+  <div class="container is-max-fullhd content has-text-centered">
+    <video poster="" id="Prox-Nav Demo" autoplay controls muted loop playsinline style="width:90%; height:auto;">
+      <source src="static/videos/Prox-Nav_demo.mp4"
+              type="video/mp4">
+    </video>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+	 
+	 <pre><code>To be added later.</code></pre>
+	<!--
+    <pre><code>@article{lastname2025social???,
+  author    = {Author1, Author2,},
+  title     = {Social Robot Navigation: A Review and Benchmarking of Learning-Based Methods},
+  journal   = {Journal},
+  year      = {2025},
+}</code></pre>
+	-->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- ETH Newsletter FORM -->
+<section class="newsletter-section" id="Newsletter">
+  <div class="newsletter-card">
+    <h1 class="newsletter-title">Newsletter</h1>
+    <h4 class="newsletter-subtitle">Get the latest Social Navigation Advancements.</h4>
+    <a href="https://sympa.ethz.ch/sympa/subscribe/socialnav-newsletter" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="subscribe-button">
+      Subscribe
+    </a>
+  </div>
+</section>
+<!-- ETH Newsletter FORM -->
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          
+		 <p>
+		© 2025 Licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. 
+		Template on <a href="https://github.com/nerfies/nerfies.github.io">GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
